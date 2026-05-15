@@ -24,7 +24,7 @@ export function ContactUsPage() {
 
         <Card className="mt-8">
           {sent ? (
-            <p className="text-sm font-medium text-site-red">Thanks — your message has been recorded for this demo.</p>
+            <p className="text-sm font-medium text-site-red">Thanks — your message has been recorded will reply soon.</p>
           ) : (
             <form onSubmit={onSubmit} className="space-y-4">
               <div>
