@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useAdminAuth } from '../../context/useAdminAuth'
-import { Logo } from '../../components/shared/Logo'
+import { SchoolLogo } from '../../components/marketing/SchoolLogo'
+import { Link } from 'react-router-dom'
+import { SITE_PATHS } from '../../site/constants/routes'
 import { getApiErrorMessage, loginUser } from '../../lib/api'
 
 export function AdminLogin() {
@@ -33,14 +35,13 @@ export function AdminLogin() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-surface px-4 py-12">
       <div className="w-full max-w-md rounded-2xl border border-border bg-white p-8 shadow-lg">
         <div className="flex justify-center">
-          <Logo variant="default" />
+          <Link to={SITE_PATHS.home}>
+            <SchoolLogo variant="header" />
+          </Link>
         </div>
-        <h1 className="mt-6 text-center text-xl font-bold text-ink">Admin sign in</h1>
+        <h1 className="mt-6 text-center text-xl font-bold text-site-navy">Admin sign in</h1>
         <p className="mt-2 text-center text-sm text-ink-secondary">
-          Sign in with your account. The server must expose{' '}
-          <code className="rounded bg-surface px-1 py-0.5 text-xs">POST /api/users/login</code> on the URL in{' '}
-          <code className="rounded bg-surface px-1 py-0.5 text-xs">.env</code> (<code className="text-xs">VITE_API_BASE_URL</code>
-          ).
+          School of Maintenance Practices — sign in to manage students, certificates, and verification records.
         </p>
         <form onSubmit={onSubmit} className="mt-8 space-y-4">
           <div>

@@ -27,7 +27,7 @@ export function VerifyForm({ value, onChange, onSubmit, loading }: VerifyFormPro
       <Button
         type="submit"
         variant="primary"
-        className="bg-blue-600 hover:bg-blue-700 sm:w-40"
+        className="bg-site-navy hover:bg-site-navy-dark sm:w-40"
         loading={loading}
       >
         Verify

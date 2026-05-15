@@ -6,7 +6,10 @@ import { SITE_MAIN_NAV } from '../../../site/constants/navigation'
 
 function useMarketingNavActive() {
   const { pathname } = useLocation()
-  return (to: string) => pathname === to
+  return (to: string) => {
+    if (to === '/verify') return pathname === '/verify' || pathname.startsWith('/verify/')
+    return pathname === to
+  }
 }
 
 function linkClassName(active: boolean) {
