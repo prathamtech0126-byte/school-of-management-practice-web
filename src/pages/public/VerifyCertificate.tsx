@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getStudentByVerificationId, getApiErrorMessage } from '../../lib/api'
+import { getStudentByVerificationId, getVerificationErrorMessage } from '../../lib/api'
 import { resolveApiAssetUrl } from '../../lib/url/resolveApiAssetUrl'
 import { HowItWorks } from '../../components/verification/HowItWorks'
 import { VerifyForm } from '../../components/verification/VerifyForm'
@@ -27,13 +27,11 @@ export function VerifyCertificate({ initialCode = '' }: VerifyCertificateProps) 
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<StudentVerificationResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [verifiedAt, setVerifiedAt] = useState<string | null>(null)
 
   const handleVerify = async () => {
     const trimmed = code.trim()
     setError(null)
     setResult(null)
-    setVerifiedAt(null)
     if (!trimmed) {
       setError('Enter a verification code.')
       return
@@ -42,9 +40,8 @@ export function VerifyCertificate({ initialCode = '' }: VerifyCertificateProps) 
     try {
       const data = await getStudentByVerificationId(trimmed)
       setResult(data)
-      setVerifiedAt(new Date().toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }))
     } catch (err) {
-      setError(getApiErrorMessage(err, 'Verification request failed.'))
+      setError(getVerificationErrorMessage(err))
       setResult(null)
     } finally {
       setLoading(false)
@@ -92,12 +89,6 @@ export function VerifyCertificate({ initialCode = '' }: VerifyCertificateProps) 
             </p>
 
             <dl className="mt-6 grid gap-5 sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-medium uppercase tracking-wide text-ink-secondary">
-                  Verified on
-                </dt>
-                <dd className="mt-1 text-sm font-semibold text-ink">{verifiedAt ?? '—'}</dd>
-              </div>
               <div>
                 <dt className="text-xs font-medium uppercase tracking-wide text-ink-secondary">
                   Status

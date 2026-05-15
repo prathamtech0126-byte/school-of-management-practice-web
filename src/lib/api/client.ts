@@ -36,6 +36,22 @@ export function getApiErrorMessage(error: unknown, fallback = 'Something went wr
   }
   if (ax.response?.status === 401) return 'Invalid email or password.'
   if (ax.response?.status === 403) return 'You do not have permission to sign in.'
-  if (ax.message) return ax.message
+  if (ax.response?.status === 404) return fallback
+  if (ax.response?.status && ax.response.status >= 500) {
+    return 'Something went wrong on our servers. Please try again later.'
+  }
+  const msg = ax.message?.trim()
+  if (msg && !/^Request failed with status code \d+$/i.test(msg)) return msg
   return fallback
+}
+
+/** User-friendly errors for public certificate verification (GET by verification ID). */
+export function getVerificationErrorMessage(
+  error: unknown,
+  notFoundFallback = 'No certificate was found for this verification code. Please check the code and try again.',
+): string {
+  if (axios.isAxiosError(error) && error.response?.status === 404) {
+    return getApiErrorMessage(error, notFoundFallback)
+  }
+  return getApiErrorMessage(error, 'Unable to verify this code right now. Please try again later.')
 }

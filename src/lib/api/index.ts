@@ -1,4 +1,4 @@
-export { apiClient, getApiErrorMessage } from './client'
+export { apiClient, getApiErrorMessage, getVerificationErrorMessage } from './client'
 export { submitContactEnquiry, type SubmitContactBody, type SubmitContactResponse } from './contact.api'
 export { loginUser, type LoginRequestBody } from './users.api'
 export {
