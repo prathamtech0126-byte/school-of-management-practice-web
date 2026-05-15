@@ -1,47 +1,91 @@
-import { Star } from 'lucide-react'
+import {
+  aboutCommitment,
+  aboutIndustryFocus,
+  aboutIndustryProgramsIntro,
+  aboutIndustryRelevant,
+  aboutIntroParagraphs,
+  aboutMission,
+  aboutPracticalLearning,
+  aboutProgramsClosing,
+  aboutTrainingAreas,
+  aboutVision,
+  aboutWhatWeOfferIntro,
+} from '../../content/aboutSmp'
 import { Card } from '../../components/ui/Card'
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="text-lg font-semibold text-site-navy">{children}</h2>
+}
+
+function BodyText({ children }: { children: React.ReactNode }) {
+  return <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{children}</p>
+}
+
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2 text-sm leading-relaxed text-ink-secondary">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-site-red" aria-hidden />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function AboutUsPage() {
   return (
     <div className="bg-surface py-12 lg:py-16">
-      <div className="mx-auto max-w-3xl px-4 lg:px-8">
-        <h1 className="text-3xl font-bold text-site-navy">About School of Maintenance Practices</h1>
+      <div className="mx-auto max-w-4xl px-4 lg:px-8">
+        <h1 className="text-3xl font-bold text-site-navy">About Us</h1>
         <p className="mt-2 text-sm text-ink-secondary">
-          ONGC&apos;s technical training institute in Vadodara, Gujarat — building maintenance capability across
-          disciplines.
+          School of Maintenance Practices (SMP) — Vadodara, Gujarat
         </p>
 
-        <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-secondary">
-          <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 font-medium text-amber-800">
-            <Star className="h-4 w-4 fill-amber-500 text-amber-500" aria-hidden />
-            4.7 · Google reviews
-          </span>
-          <span className="rounded-full bg-surface px-3 py-1 font-medium ring-1 ring-border">Government office</span>
-          <span className="rounded-full bg-surface px-3 py-1 font-medium ring-1 ring-border">
-            Vadodara, Gujarat
-          </span>
+        <Card className="mt-8 space-y-4">
+          {aboutIntroParagraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)} className="text-sm leading-relaxed text-ink-secondary">
+              {paragraph}
+            </p>
+          ))}
+        </Card>
+
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <Card>
+            <SectionTitle>Our Mission</SectionTitle>
+            <BodyText>{aboutMission}</BodyText>
+          </Card>
+          <Card>
+            <SectionTitle>Our Vision</SectionTitle>
+            <BodyText>{aboutVision}</BodyText>
+          </Card>
         </div>
 
-        <Card className="mt-8 space-y-6">
-          <div>
-            <h2 className="text-lg font-semibold text-ink">Who we are</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
-              The <strong className="font-medium text-ink">School of Maintenance Practices (SMP)</strong> is an
-              ONGC training institute near Central Workshop, Tarsali, Vadodara. We deliver hands-on and classroom
-              programs for maintenance engineers and technicians across mechanical, electrical, instrumentation,
-              reliability, and maintenance management — supporting safe, reliable operations in the field.
-            </p>
-          </div>
+        <Card className="mt-8">
+          <SectionTitle>What We Offer</SectionTitle>
+          <BodyText>{aboutWhatWeOfferIntro}</BodyText>
+          <BulletList items={aboutTrainingAreas} />
+          <BodyText>{aboutProgramsClosing}</BodyText>
+        </Card>
 
-          <div>
-            <h2 className="text-lg font-semibold text-ink">What we offer</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
-              Structured learning paths aligned to plant equipment and industry standards: rotating equipment,
-              pumps and compressors, hydraulics and pneumatics, condition monitoring, preventive and predictive
-              maintenance, planning and scheduling, and safety in maintenance. Programs are designed for ONGC
-              personnel and partners who need practical skills for day-to-day maintenance work.
-            </p>
-          </div>
+        <Card className="mt-8">
+          <SectionTitle>Practical Learning Environment</SectionTitle>
+          {aboutPracticalLearning.map((paragraph) => (
+            <BodyText key={paragraph.slice(0, 48)}>{paragraph}</BodyText>
+          ))}
+        </Card>
+
+        <Card className="mt-8">
+          <SectionTitle>Industry-Relevant Training</SectionTitle>
+          <BodyText>{aboutIndustryRelevant}</BodyText>
+          <BodyText>{aboutIndustryProgramsIntro}</BodyText>
+          <BulletList items={aboutIndustryFocus} />
+        </Card>
+
+        <Card className="mt-8">
+          <SectionTitle>Commitment to Excellence</SectionTitle>
+          <BodyText>{aboutCommitment}</BodyText>
         </Card>
       </div>
     </div>

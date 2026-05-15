@@ -1,4 +1,5 @@
 export { apiClient, getApiErrorMessage } from './client'
+export { submitContactEnquiry, type SubmitContactBody, type SubmitContactResponse } from './contact.api'
 export { loginUser, type LoginRequestBody } from './users.api'
 export {
   CERTIFICATE_FILE_FIELD,
