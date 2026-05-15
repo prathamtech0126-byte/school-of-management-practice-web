@@ -1,10 +1,9 @@
 import { createContext } from 'react'
-
-export const ADMIN_SESSION_STORAGE_KEY = 'cv_admin_session'
+import type { AdminSession } from '../lib/auth/adminSessionStorage'
 
 export type AdminAuthContextValue = {
   authenticated: boolean
-  login: () => void
+  login: (session: AdminSession) => void
   logout: () => void
 }
 

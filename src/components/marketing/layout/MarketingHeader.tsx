@@ -36,13 +36,7 @@ export function MarketingHeader() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <Link
-            to="/admin/dashboard"
-            className="hidden items-center justify-center rounded-lg bg-site-navy px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-site-navy-dark sm:inline-flex"
-          >
-            Admin login
-          </Link>
+        <div className="flex shrink-0 items-center">
           <button
             type="button"
             className="rounded-lg p-2 text-ink-secondary transition-all duration-200 hover:bg-surface lg:hidden"
@@ -69,13 +63,6 @@ export function MarketingHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/admin/dashboard"
-              className="mt-2 rounded-lg bg-site-navy px-3 py-2.5 text-center text-sm font-semibold text-white transition-all duration-200 hover:bg-site-navy-dark"
-              onClick={() => setOpen(false)}
-            >
-              Admin login
-            </Link>
           </nav>
         </div>
       ) : null}

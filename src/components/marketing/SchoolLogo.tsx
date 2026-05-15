@@ -7,7 +7,8 @@ export interface SchoolLogoProps {
 }
 
 const variantClass: Record<NonNullable<SchoolLogoProps['variant']>, string> = {
-  header: 'h-9 w-auto max-h-10 max-w-[180px] object-contain object-left',
+  header:
+    'h-12 w-auto max-h-[52px] max-w-[240px] object-contain object-left sm:h-[52px] lg:h-14 lg:max-h-[58px] lg:max-w-[260px]',
   hero: 'h-24 w-auto max-w-xs object-contain sm:h-28 lg:h-32 lg:max-w-sm',
   footer: 'h-10 w-auto max-w-[160px] object-contain opacity-95',
 }
@@ -16,7 +17,7 @@ export function SchoolLogo({ variant = 'header', className = '' }: SchoolLogoPro
   return (
     <img
       src={schoolLogoSvg}
-      alt="CertiVerify"
+      alt="School of Maintenance Practices"
       className={`${variantClass[variant]} ${className}`.trim()}
       decoding="async"
     />

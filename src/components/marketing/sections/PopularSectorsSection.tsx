@@ -9,23 +9,24 @@ export function PopularSectorsSection() {
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h2 className="text-2xl font-bold text-site-navy sm:text-3xl">Popular sectors</h2>
+            <h2 className="text-2xl font-bold text-site-navy sm:text-3xl">Program areas</h2>
             <p className="mt-2 max-w-xl text-sm text-ink-secondary">
-              Industry clusters where digital credentials and standards matter most.
+              Training organized across core maintenance disciplines — from rotating equipment to planning and
+              safety.
             </p>
           </div>
           <Link
-            to="/verify"
+            to={SITE_PATHS.courses}
             className="shrink-0 text-sm font-semibold text-site-red transition-all duration-200 hover:text-site-red-dark"
           >
-            Verify a certificate
+            View all courses
           </Link>
         </div>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {MARKETING_SECTORS.map((s) => (
             <Card
-              key={s.name}
+              key={s.slug}
               padding="md"
               className="group flex flex-col items-center text-center transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
             >

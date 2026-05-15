@@ -26,7 +26,7 @@ export function CourseCompactCard({ course }: CourseCompactCardProps) {
           <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
         </span>
         <p className="mt-3 line-clamp-2 text-left text-xs font-bold leading-snug text-ink">{course.title}</p>
-        <p className="mt-1 line-clamp-1 text-left text-[11px] text-ink-secondary">{course.provider}</p>
+        <p className="mt-1 line-clamp-2 text-left text-[11px] leading-snug text-ink-secondary">{course.coverage}</p>
         <div className="mt-auto flex items-center justify-between gap-2 pt-3 text-[11px] text-ink-secondary">
           <span className="inline-flex min-w-0 items-center gap-1">
             <Users className="h-3.5 w-3.5 shrink-0 text-site-navy" aria-hidden />

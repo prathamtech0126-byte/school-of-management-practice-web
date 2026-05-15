@@ -1,5 +1,4 @@
 import heroSideLogo from '../../../assets/school logo (2).svg?url'
-import { SchoolLogo } from '../SchoolLogo'
 
 export function MarketingHero() {
   return (
@@ -16,13 +15,12 @@ export function MarketingHero() {
 
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-8 lg:py-20">
         <div>
-          <SchoolLogo variant="hero" className="mb-6 drop-shadow-lg lg:mb-8" />
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
-            Explore sectors & trusted credentials
+            School of Maintenance Practices
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-            CertiVerify helps organizations issue, manage, and prove compliance across industries. Browse
-            popular sectors and certificate paths below, or use Verify when you have a code to check.
+            Industry-focused training in mechanical, electrical, instrumentation, reliability, and maintenance
+            management for industrial equipment and plant operations. Explore program areas and courses below.
           </p>
         </div>
 

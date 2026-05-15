@@ -20,7 +20,7 @@ export function PopularCoursesSection() {
       <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <SiteSectionHeader
           title="Popular courses"
-          subtitle="In-demand certificate programs aligned to international standards."
+          subtitle="Hands-on and classroom programs in industrial maintenance, reliability, and maintenance management."
           action={
             <Link
               to={SITE_PATHS.courses}
